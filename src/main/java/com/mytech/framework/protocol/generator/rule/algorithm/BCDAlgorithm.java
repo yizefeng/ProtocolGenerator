@@ -6,11 +6,13 @@ package com.mytech.framework.protocol.generator.rule.algorithm;
  */
 public class BCDAlgorithm {
 
+    @Algorithm(name="plus")
     public int plus(int num){
         return 0;
     }
 
-    public int reduce(int num){
+    @Algorithm(name="minus")
+    public int minus(int num){
         return 0;
     }
 

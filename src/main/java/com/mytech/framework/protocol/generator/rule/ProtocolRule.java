@@ -12,6 +12,9 @@ public abstract class ProtocolRule {
     //识别协议
     protected abstract boolean reconginze(byte[] b);
 
+    //协议校验
+    protected abstract boolean validate(byte[] b);
+
     //封装协议
     protected abstract byte[] wrap(List<ProtocolElement> list);
 
