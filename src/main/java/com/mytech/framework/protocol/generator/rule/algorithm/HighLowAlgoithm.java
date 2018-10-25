@@ -6,4 +6,8 @@ package com.mytech.framework.protocol.generator.rule.algorithm;
  */
 public class HighLowAlgoithm {
 
+    @Algorithm(name = "reverse", gid = 1)
+    public void reverse(byte[] data){
+
+    }
 }
