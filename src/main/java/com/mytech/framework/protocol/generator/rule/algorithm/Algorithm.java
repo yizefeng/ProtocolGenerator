@@ -11,6 +11,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface Algorithm {
-    public int gid();
-    public String name();
+    public int gid() default 0;
+    public String name() default "";
 }
