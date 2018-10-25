@@ -26,13 +26,22 @@ public class DateUtil {
     }
 
     public static void main(String[] args){
-        String dateStr = "2018-01-01";
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String dateStr = "2018-01-01 01:05";
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         try {
             System.out.println(isFirstDayOfMonth(format.parse(dateStr)));
             System.out.println(isFirstDayOfYear(format.parse(dateStr)));
+            System.out.println(toMinites(format.parse(dateStr)));
         } catch (ParseException e) {
             e.printStackTrace();
         }
+    }
+
+    public static int toMinites(Date date) {
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        int hour = c.get(Calendar.HOUR_OF_DAY);
+        int minite = c.get(Calendar.MINUTE);
+        return hour*60 + minite;
     }
 }
