@@ -69,15 +69,19 @@ public abstract class CollectListener{
         return subListeners;
     }
 
-    public void setSubListeners(List<CollectListener> subListeners) {
-        this.subListeners = subListeners;
+    public void addSubListeners(CollectListener listener){
+        subListeners.add(listener);
     }
 
-    public void addSubListeners(CollectListener subListener){
-        subListeners.add(subListener);
+    public void removeSubListener(CollectListener listener){
+        subListeners.remove(listener);
     }
 
-    public void removeSubListener(CollectListener subListener){
-        subListeners.remove(subListener);
+    public void addAddrMapping(String addr, CollectListener listener){
+        addrMapping.put(addr, listener);
+    }
+
+    public void removeAddrMapping(String addr){
+        addrMapping.remove(addr);
     }
 }
