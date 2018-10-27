@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ExecutorService;
 
 /**
  * Created by zengqiang on 2018/10/25.
@@ -35,13 +34,17 @@ public abstract class CollectListener{
 
     //分发消息到制定的subListener
     protected void dispatch(byte[] msg){
+        String addr = getSubListenerAddr(msg);
+        CollectListener listener = getSubLIstenerByAddr(addr);
+        if(listener != null){
+            listener.handleMsg(msg);
+        }
+    }
 
-    };
+    protected abstract String getSubListenerAddr(byte[] msg);
 
     //处理消息
-    protected void handleMsg(byte[] msg){
-
-    };
+    protected abstract void handleMsg(byte[] msg);
 
 
     public void sendMsg(byte[] msg){
@@ -84,4 +87,8 @@ public abstract class CollectListener{
     public void removeAddrMapping(String addr){
         addrMapping.remove(addr);
     }
+
+    protected CollectListener getSubLIstenerByAddr(String addr){
+        return addrMapping.get(addr);
+    };
 }
