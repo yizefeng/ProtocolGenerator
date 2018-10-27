@@ -14,19 +14,6 @@ public class CollectEvent{
     //当天的采集顺序
     private int sequence;
 
-    //广播采集事件
-    public void broadcast(){
-        Vector<CollectListener> listeners = CollectManager.newInstance().getListeners();
-        if(listeners == null || listeners.size() == 0){
-            System.out.println("无采集对象！");
-            return;
-        }
-        for(Iterator<CollectListener> it = listeners.iterator(); it.hasNext();){
-            CollectListener listener = it.next();
-
-        }
-    }
-
     public int getFrequency() {
         return frequency;
     }
